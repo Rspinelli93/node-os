@@ -1,9 +1,8 @@
-const { memoryUsage } = require('node:process');
 const os = require('os');
 const process = require('process');
 
 const userData = () => {
-    const memoryTotal = memoryUsage().heapTotal / 1024
+    const memoryTotal = process.memoryUsage().heapTotal / 1024
     const memoryFree = (process.memoryUsage().heapTotal - process.memoryUsage().heapUsed) / 1024
     
     let user = {
@@ -19,3 +18,5 @@ const userData = () => {
 }
 
 userData()
+
+module.exports = userData;
